@@ -1,27 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<plugin id="com.dsoles.outsystems.plugin.background" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="com.dsoles.outsystems.plugin.background" version="0.0.1"
+  xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
   <name>BackgroundThreadPlugin</name>
   <description>Background Work Android/IOs</description>
-  <author>OutSystems Inc</author>
+  <keywords>cordova,camera</keywords>
+
+  <engines>
+    <engine name="cordova" version=">=7.1.0" />
+    <engine name="cordova-android" version=">=6.3.0" />
+  </engines>
+
   <js-module name="BackgroundThreadPlugin" src="www/BackgroundThreadPlugin.js">
-    <clobbers target="cordova.plugins.BackgroundThreadPlugin"/>
+    <clobbers target="cordova.plugins.BackgroundThreadPlugin" />
   </js-module>
   <platform name="android">
     <config-file parent="/*" target="res/xml/config.xml">
       <feature name="BackgroundThreadPlugin">
-        <param name="android-package" value="com.dsoles.outsystems.plugin.background.BackgroundThreadPlugin"/>
+        <param name="android-package"
+          value="com.dsoles.outsystems.plugin.background.BackgroundThreadPlugin" />
       </feature>
+      <preference name="GradlePluginKotlinEnabled" value="true" />
+      <preference name="GradlePluginKotlinCodeStyle" value="official" />
+      <preference name="AndroidXEnabled" value="true" />
     </config-file>
-    <config-file parent="/*" target="AndroidManifest.xml"/>
-    <source-file src="src/android/com/dsoles/outsystems/plugin/background/BackgroundThreadPlugin.java" target-dir="src/com/dsoles/outsystems/plugin/background"/>
+   <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+            <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    </config-file>
+    <source-file
+      src="src/android/com/dsoles/outsystems/plugin/background/BackgroundThreadPlugin.java"
+      target-dir="src/com/dsoles/outsystems/plugin/background" />
+    <framework src="libs/android/build.gradle" custom="true" type="gradleReference" />
   </platform>
   <platform name="ios">
     <config-file parent="/*" target="config.xml">
       <feature name="BackgroundThreadPlugin">
-        <param name="ios-package" value="BackgroundThreadPlugin"/>
+        <param name="ios-package" value="BackgroundThreadPlugin" />
       </feature>
     </config-file>
-    <source-file src="src/ios/BackgroundThreadPlugin.m"/>
-    <header-file src="src/ios/BackgroundThreadPlugin.h"/>
+    <dependency id="cordova-plugin-add-swift-support" url="https://github.com/OutSystems/cordova-plugin-add-swift-support.git#2.0.3-OS1"/>
+    <source-file src="src/ios/BackgroundThreadPlugin.m" />
+    <header-file src="src/ios/BackgroundThreadPlugin.h" />
   </platform>
 </plugin>
