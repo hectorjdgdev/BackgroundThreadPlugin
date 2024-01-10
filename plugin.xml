@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.outsystems.plugins.osbackgroundtask" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>OSBackgroundTask</name>
+    <description>OutSystems Template for Cordova Plugin</description>
+    <author>OutSystems Inc</author>
+    <js-module name="OSBackgroundTask" src="www/OSBackgroundTask.js">
+        <clobbers target="cordova.plugins.OSBackgroundTask" />
+    </js-module>
+</plugin>

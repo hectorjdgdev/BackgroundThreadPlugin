@@ -1,0 +1,13 @@
+{
+  "name": "com.outsystems.plugins.osbackgroundtask",
+  "version": "0.0.1",
+  "description": "OutSystems Template for Cordova Plugin",
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "cordova": {
+    "id": "com.outsystems.plugins.osbackgroundtask",
+    "platforms": []
+  },
+  "engines": []
+}
